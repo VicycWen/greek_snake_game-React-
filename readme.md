@@ -1,9 +1,8 @@
-<b>在线演示链接：https://vicycwen.github.io/greeky_snake（纯JS版本）</b>
+<b>在线演示链接：<a href="https://vicycwen.github.io/greeky_snake">https://vicycwen.github.io/greeky_snake</a>（纯JS版本）</b>
 
 首先，确保你计算机已安装好npm (node package manager)包管理工具；
 
 <h3>使用步骤</h3>
-
 <ol>
     <li><code>npx create-react-app greek_snake_game</code></li>
 	<li><code>cd greek_snake_game</code></li>
