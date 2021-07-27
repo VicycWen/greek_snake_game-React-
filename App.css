@@ -1,0 +1,140 @@
+.content{
+  width: 640px;
+  height: 640px;
+  margin: 100px auto;
+  /* border: 1px solid red; */
+  
+  position: relative;
+}
+
+#snakeWrap{
+  width: 600px;
+  height: 600px;
+  background: #19638d;
+  border: 20px solid #28adfa;
+
+  position: relative;
+}
+
+.scoreWrap{
+  position: absolute;
+  right: 50px;
+  z-index: 10;
+}
+
+/* 蛇和食物 */
+.snakeHead{
+  background-image: url(./images/snakeHead3_20_21.png);
+  background-size: 100% 95%;
+  background-repeat: no-repeat;
+}
+.snakeBody{
+  background-image: url(./images/snakeBody1_20_20.png);
+  background-size: 95% 90%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+
+.food{
+  background-image: url(./images/apple.png);
+  background-size: 100% 100%;
+}
+
+/* 菜单 */
+.btn{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  z-index: 2;
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  /* border: 1px solid red; */
+}
+
+.btn button{
+  background: none;
+  /* border: none; */
+  background-size: 100% 100%;
+  
+  cursor: pointer;
+  outline: none;
+
+  position: absolute;
+  right:  -12%;
+  top: 2%;
+}
+
+.startBtn button{
+
+}
+.pauseBtn button{
+  margin-top: 40px;
+}
+.helpBtn button{
+  margin-top: 80px;
+}
+
+
+/* 操作说明 */
+.helpWrap{
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  z-index: 11;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+.help{
+  display: block;
+  width: 400px;
+  margin: 0 auto;
+
+  /* 垂直居中 */
+  margin-top: 50%;
+  transform: translate(0, -50%); 
+
+  color: white;
+  border:1px solid;
+  padding: 10px;
+}
+
+.close{
+  display: block;
+  width: 10px;
+  height: auto;
+  padding: 1px 8px;
+  color: white;
+  background-color: red;
+  border:1px solid;
+
+  position: relative;
+  top: 0;
+  left: 373px;
+  margin-top: -11px;
+  margin-left: 10px;
+}
+
+/* 暂停画面 */
+.mask {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.25);
+  position: absolute;
+  z-index: 12;
+  top: 0;
+  text-align: center;
+}
+
+.mask p{
+  width: 20%;
+  color: white;
+  margin: 50% auto;
+  padding: 2%;
+  transform: translate(0, -50%);
+  border: 1px solid white;
+  border-radius: 50%;
+}
