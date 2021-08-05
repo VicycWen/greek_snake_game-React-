@@ -16,7 +16,7 @@ operationMode.keyboardMode = function(ev){
     } else if (ev.key == 'w' && this.direction != this.directionNum.down){
             this.direction = this.directionNum.up;
     } else if (ev.key == 'q'){
-        pauseBtn.onclick();
+        //pauseBtn.onclick();
     }
 //     console.log('keyboardMode this:',this); //这里的this是指snake，它在运行的时候需要绑定
 }

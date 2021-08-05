@@ -7,7 +7,7 @@
     <li><code>npx create-react-app greek_snake_game</code></li>
 	<li><code>cd greek_snake_game</code></li>
     <li>创建完成后删除src文件夹下的所有文件，再将本仓库的所有文件复制到src文件夹下</li>
-    <li>在运行greek_snake_game目录下<code>npm start</code>命令</li>
+    <li>在greek_snake_game目录下运行<code>npm start</code>命令</li>
     <li>按照提示打开<a href="http://localhost:3000">http://localhost:3000</a>即可查看本项目运行效果</li>
 </ol>
 

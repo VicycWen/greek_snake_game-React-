@@ -54,16 +54,24 @@
 }
 
 .btn button{
-  background: none;
-  /* border: none; */
+  box-shadow: 2px 4px 4px rgb(165, 164, 164);
   background-size: 100% 100%;
+  border: 0.1px solid black;
+  border-radius: 20px;
   
   cursor: pointer;
   outline: none;
 
   position: absolute;
-  right:  -12%;
-  top: 2%;
+  right:  -100px;
+  top: 16px;
+
+  width: 88px;
+  height: 34px;
+}
+.btn-hover{
+  background-color: #268dc9;
+  color: white;
 }
 
 .startBtn button{
