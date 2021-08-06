@@ -6,6 +6,10 @@ class Menu extends React.Component {
         startBtnDisabled: false,
         pauseBtnDisabled: true,
         pauseBtnName: '暂停游戏',
+
+        startBtnHover: '',
+        pauseBtnHover: '',
+        helpBtnHover: '',
     }
     
     handleClick = btnType => {
@@ -15,6 +19,9 @@ class Menu extends React.Component {
                 return {
                     startBtnDisabled: true,
                     pauseBtnDisabled: false,
+
+                    startBtnHover: '',
+                    helpBtnHover: '',
                 }
             })
         }else if(btnType === 'pause'){
@@ -39,6 +46,60 @@ class Menu extends React.Component {
         }
     }
 
+    // 处理各个按钮的悬停事件
+    handleHover = (type) => {
+        if(type === 'startBtn'){
+            if(this.props.gameStatus === 'init' || !this.props.gameStatus){
+                this.setState(function(){
+                    return {
+                        startBtnHover: 'btn-hover',
+                    }
+                })
+                this.forceUpdate();
+            }
+        }else if(type === 'startBtn-leave'){
+            this.setState(function(){
+                return {
+                    startBtnHover: '',
+                }
+            })
+            this.forceUpdate();
+        }else if(type === 'helpBtn'){
+            if(this.props.gameStatus === 'init' || !this.props.gameStatus){
+                this.setState(function(){
+                    return {
+                        helpBtnHover: 'btn-hover',
+                    }
+                })
+                this.forceUpdate();
+            }
+        }else if(type === 'helpBtn-leave'){
+            this.setState(function(){
+                return {
+                    helpBtnHover: '',
+                }
+            })
+            this.forceUpdate();
+        }else if(type === 'pauseBtn'){
+            // if(this.props.gameStatus === 'playing'){
+                this.setState(function(){
+                    return {
+                        pauseBtnHover: 'btn-hover',
+                    }
+                })
+                this.forceUpdate();
+            // }
+        }else if(type === 'pauseBtn-leave'){
+            this.setState(function(){
+                return {
+                    pauseBtnHover: '',
+                }
+            })
+            this.forceUpdate();
+        }
+    }
+
+
     shouldComponentUpdate(nextProps,nextState) {
         if(nextProps.gameStatus === this.props.gameStatus){
             return false;
@@ -52,14 +113,26 @@ class Menu extends React.Component {
 
         return (
             <div>
-                <div className="btn startBtn">
-                    <button disabled={this.state.startBtnDisabled && this.props.gameStatus !== 'init'} onClick={() => this.handleClick('start')}>开始游戏</button>
+                <div className="btn startBtn" >
+                    <button className={this.state.startBtnHover} 
+                       disabled={this.state.startBtnDisabled && this.props.gameStatus !== 'init'} 
+                       onClick={() => this.handleClick('start')}
+                       onMouseOver={() => this.handleHover('startBtn')}
+                       onMouseLeave={() => this.handleHover('startBtn-leave')}>开始游戏</button>
                 </div>
                 <div className="btn pauseBtn">
-                    <button disabled={this.state.pauseBtnDisabled || this.props.gameStatus === 'init'} onClick={() => this.handleClick('pause')}>{this.state.pauseBtnName}</button>
+                    <button className={this.state.pauseBtnHover} 
+                      disabled={this.state.pauseBtnDisabled || this.props.gameStatus === 'init'} 
+                      onClick={() => this.handleClick('pause')}
+                      onMouseOver={() => this.handleHover('pauseBtn')}
+                      onMouseLeave={() => this.handleHover('pauseBtn-leave')}>{this.state.pauseBtnName}</button>
                 </div>
                 <div className="btn helpBtn">
-                    <button disabled={this.state.startBtnDisabled && this.props.gameStatus !== 'init'} onClick={() => this.handleClick('help')}>操作说明</button>
+                    <button className={this.state.helpBtnHover} 
+                      disabled={this.state.startBtnDisabled && this.props.gameStatus !== 'init'} 
+                      onClick={() => this.handleClick('help')}
+                      onMouseOver={() => this.handleHover('helpBtn')}
+                      onMouseLeave={() => this.handleHover('helpBtn-leave')}>操作说明</button>
                 </div>
             </div>
         )
