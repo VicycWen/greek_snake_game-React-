@@ -1,7 +1,7 @@
-function operationMode(){
-    this.clickMode = null;
-    this.keyboardMode = null;
-    this.pauseClick = null;
+const operationMode = {
+    clickMode : null,
+    keyboardMode : null,
+    pauseClick : null
 }
 
 // 可以加个在移动间隔时间内只能改变一次方向
@@ -31,7 +31,7 @@ operationMode.clickMode = function(event) {
     var snakeHead = document.getElementsByClassName('snakeHead')[0];
     if (snakeHead){
 
-        const snakeHeadPos = getElementPagePosition(snakeHead);
+        const snakeHeadPos = getOffsetRect(snakeHead);
         const x0 = snakeHeadPos.x;
         const y0 = snakeHeadPos.y;
         const newDirection = calculateDirection(x0,y0,x1,y1);
@@ -51,24 +51,10 @@ operationMode.clickMode = function(event) {
     return {'x':e.pageX,'y':e.pageY};
 }
 
-function getElementPagePosition(element){
-    //计算x坐标
-    var actualLeft = element.offsetLeft;
-    var current = element.offsetParent;
-    while (current !== null){
-      actualLeft += current.offsetLeft;
-      current = current.offsetParent;
-    }
-    //计算y坐标
-    var actualTop = element.offsetTop;
-    var current = element.offsetParent;
-    while (current !== null){
-      actualTop += (current.offsetTop+current.clientTop);
-      current = current.offsetParent;
-    }
-    //返回结果
-    return {x: actualLeft, y: actualTop}
-  }
+function getOffsetRect(elem) {
+    var box = elem.getBoundingClientRect()
+    return { x: Math.round(box.left), y: Math.round(box.top) }
+}
 
 
 function calculateDirection(x0,y0,x1,y1){

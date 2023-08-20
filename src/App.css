@@ -1,10 +1,20 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
 .content{
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 640px;
   height: 640px;
-  margin: 100px auto;
-  /* border: 1px solid red; */
-  
-  position: relative;
+  transform: translate(-320px,-320px);
 }
 
 #snakeWrap{
