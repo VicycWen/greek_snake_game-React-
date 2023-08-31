@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 #root {
@@ -155,4 +156,18 @@ body {
   transform: translate(0, -50%);
   border: 1px solid white;
   border-radius: 50%;
+}
+
+.preload {
+    width: 0;
+    height: 0;
+}
+.preload .i1 {
+    background-image: url(./images/apple.png);
+}
+.preload .i2 {
+    background-image: url(./images/snakeHead3_20_21.png);
+}
+.preload .i3 {
+    background-image: url(./images/snakeBody1_20_20.png);
 }
